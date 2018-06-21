@@ -33,7 +33,6 @@ public class Monster {
     public void moveMonster(int playerX, int playerY) {
 
         stupidityFactor = rand.nextFloat();
-        System.out.println(stupidityFactor);
         if (stupidityFactor < 0.9) {
             smartMove = 1;
         } else {
