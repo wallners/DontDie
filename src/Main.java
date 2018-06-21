@@ -12,9 +12,10 @@ public class Main {
         char [][] board = new char [20][20];
         Player player = new Player(10,10);
         Monster monster1 = new Monster(0,0);
-        moveCursor(monster1,terminal);
         moveCursor(player, terminal);
+        moveCursor(monster1,terminal);
         terminal.enterPrivateMode();
+
         while (true) {
 //Wait for a key to be pressed
             Key key;
@@ -25,15 +26,21 @@ public class Main {
             while (key == null);
             switch (key.getKind()) {
                 case ArrowDown:
+                    player.setY(-1);
                     break;
                 case ArrowUp:
+                    player.setY(+1);
                     break;
                 case ArrowLeft:
+                    player.setX(-1);
                     break;
                 case ArrowRight:
+                    player.setX(+1);
                     break;
             }
+
             clearScreen(terminal);
+            moveCursor(player, terminal);
             System.out.println(key.getCharacter() + " " + key.getKind());
         }
     }
