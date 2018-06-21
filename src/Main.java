@@ -30,7 +30,12 @@ public class Main {
                 case ArrowRight:
                     break;
             }
+            clearScreen(terminal);
             System.out.println(key.getCharacter() + " " + key.getKind());
         }
+    }
+
+    public static void clearScreen(Terminal terminal) {
+        terminal.clearScreen();
     }
 }
