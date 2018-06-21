@@ -38,4 +38,12 @@ public class Main {
     public static void clearScreen(Terminal terminal) {
         terminal.clearScreen();
     }
+    public static void moveCursor(Player player, Terminal terminal) {
+        int x = player.getX();
+        int y = player.getY();
+        terminal.moveCursor(x,y);
+        terminal.putCharacter('O');
+        terminal.moveCursor(0,0);
+
+    }
 }
