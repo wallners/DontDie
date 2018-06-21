@@ -58,7 +58,7 @@ public class Monster {
 
     public boolean isMonsterClose(Monster[] monsters) {
         for (Monster monster : monsters) {
-            if (newX - x == 0 && newY - y == 0 && monster != this) {
+            if (newX - monster.getX() == 0 && newY - monster.getY() == 0 && monster != this) {
                 return true;
             }
         }
