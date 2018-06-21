@@ -97,7 +97,7 @@ public class Board {
         int x = player.getX();
         int y = player.getY();
         terminal.moveCursor(x, y);
-        terminal.putCharacter('O');
+        terminal.putCharacter('\u263A');
         terminal.moveCursor(0, 0);
 
     }
@@ -106,7 +106,7 @@ public class Board {
         int x = monster.getX();
         int y = monster.getY();
         terminal.moveCursor(x, y);
-        terminal.putCharacter('X');
+        terminal.putCharacter('\u2620');
         terminal.moveCursor(0, 0);
 
     }
