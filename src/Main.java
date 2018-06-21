@@ -6,6 +6,9 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         Terminal terminal = TerminalFacade.createTerminal(System.in,
                 System.out, Charset.forName("UTF8"));
+
+        char [][] board = new char [20][20];
+
         terminal.enterPrivateMode();
         while(true){
 //Wait for a key to be pressed
