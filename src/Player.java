@@ -11,8 +11,15 @@ public class Player {
         return x;
     }
 
+    public void setX(int moveX) {
+        this.x = x + moveX;
+    }
+
     public int getY() {
         return y;
     }
 
+    public void setY(int moveY) {
+        this.y = y + moveY;
+    }
 }
