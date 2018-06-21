@@ -11,7 +11,7 @@ public class Main {
 
         char [][] board = new char [20][20];
         Player player = new Player(10,10);
-
+        moveCursor(player, terminal);
         terminal.enterPrivateMode();
         while (true) {
 //Wait for a key to be pressed
