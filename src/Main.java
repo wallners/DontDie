@@ -12,9 +12,18 @@ public class Main {
         char[][] board = new char[20][20];
         Player player = new Player(10, 10);
         Monster monster1 = new Monster(0, 0);
+        Monster monster2 = new Monster(0,20);
+        Monster monster3 = new Monster(20,0);
+        Monster monster4 = new Monster(20,20);
         moveCursor(player, terminal);
         monster1.moveMonster(player.getX(), player.getY());
+        monster2.moveMonster(player.getX(), player.getY());
+        monster3.moveMonster(player.getX(),player.getY());
+        monster4.moveMonster(player.getX(),player.getY());
         moveCursor(monster1, terminal);
+        moveCursor(monster2,terminal);
+        moveCursor(monster3, terminal);
+        moveCursor(monster4,terminal);
 
 
         terminal.enterPrivateMode();
@@ -46,6 +55,12 @@ public class Main {
             moveCursor(player, terminal);
             monster1.moveMonster(player.getX(), player.getY());
             moveCursor(monster1, terminal);
+            monster2.moveMonster(player.getX(), player.getY());
+            moveCursor(monster2,terminal);
+            monster3.moveMonster(player.getX(),player.getY());
+            moveCursor(monster3, terminal);
+            monster4.moveMonster(player.getX(),player.getY());
+            moveCursor(monster4,terminal);
             System.out.println(key.getCharacter() + " " + key.getKind());
 
             if (monster1.getX() == player.getX() && monster1.getY() == player.getY()) {
