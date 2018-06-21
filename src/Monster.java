@@ -1,12 +1,13 @@
 import java.util.Random;
 
 public class Monster {
-    private int x;
-    private int y;
     Random rand = new Random();
     float stupidityFactor;
     int smartMove = 1;
-
+    int newX;
+    int newY;
+    private int x;
+    private int y;
 
     public Monster(int x, int y) {
         this.x = x;
@@ -21,33 +22,46 @@ public class Monster {
         this.x = x + moveX;
     }
 
-    public void setY(int moveY) {
-        this.y = y + moveY;
-    }
-
     public int getY() {
         return y;
 
     }
 
-    public void moveMonster(int playerX, int playerY) {
+    public void setY(int moveY) {
+        this.y = y + moveY;
+    }
+
+    public void moveMonster(int playerX, int playerY, Monster[] monsters) {
 
         stupidityFactor = rand.nextFloat();
+
         if (stupidityFactor < 0.9) {
             smartMove = 1;
         } else {
             smartMove = -1;
         }
-
         if (this.x > playerX) {
-            setX(-1 * smartMove);
+            newX = x - 1 * smartMove;
         } else {
-            setX(+1 * smartMove);
+            newX = x + 1;
         }
         if (this.y > playerY) {
-            setY(-1 * smartMove);
+            newY = y - 1;
         } else {
-            setY(+1 * smartMove);
+            newY = y + 1;
         }
+        if (!isMonsterClose(monsters)) {
+            setX((newX-x)*smartMove);
+            setY((newY-y)*smartMove);
+        }
+    }
+
+    public boolean isMonsterClose(Monster[] monsters) {
+        for (Monster monster : monsters) {
+            if (newX - x == 0 && newY - y == 0 && monster != this) {
+                return true;
+            }
+        }
+        return false;
     }
 }

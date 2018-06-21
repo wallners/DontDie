@@ -11,18 +11,24 @@ public class Board {
     public Monster monster3;
     public Monster monster4;
     public Player player;
+    public Monster[] monsters;
 
     public Board(Terminal terminal) throws java.lang.InterruptedException {
         monster1 = new Monster(0, 0);
         monster2 = new Monster(0, 20);
         monster3 = new Monster(20, 0);
         monster4 = new Monster(20, 20);
+        monsters = new Monster[4];
+        monsters[0] = monster1;
+        monsters[1] = monster2;
+        monsters[2] = monster3;
+        monsters[3] = monster4;
         player = new Player(10, 10);
 
-        monster1.moveMonster(player.getX(), player.getY());
-        monster2.moveMonster(player.getX(), player.getY());
-        monster3.moveMonster(player.getX(), player.getY());
-        monster4.moveMonster(player.getX(), player.getY());
+        monster1.moveMonster(player.getX(), player.getY(), monsters);
+        monster2.moveMonster(player.getX(), player.getY(), monsters);
+        monster3.moveMonster(player.getX(), player.getY(), monsters);
+        monster4.moveMonster(player.getX(), player.getY(), monsters);
 
 
         moveCursor(monster1, terminal);
@@ -62,13 +68,13 @@ public class Board {
 
             clearScreen(terminal);
             moveCursor(player, terminal);
-            monster1.moveMonster(player.getX(), player.getY());
+            monster1.moveMonster(player.getX(), player.getY(), monsters);
             moveCursor(monster1, terminal);
-            monster2.moveMonster(player.getX(), player.getY());
+            monster2.moveMonster(player.getX(), player.getY(), monsters);
             moveCursor(monster2, terminal);
-            monster3.moveMonster(player.getX(), player.getY());
+            monster3.moveMonster(player.getX(), player.getY(), monsters);
             moveCursor(monster3, terminal);
-            monster4.moveMonster(player.getX(), player.getY());
+            monster4.moveMonster(player.getX(), player.getY(), monsters);
             moveCursor(monster4, terminal);
 
             if (monster1.getX() == player.getX() && monster1.getY() == player.getY()) {
