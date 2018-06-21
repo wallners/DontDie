@@ -10,6 +10,7 @@ public class Main {
                 System.out, Charset.forName("UTF8"));
 
         char [][] board = new char [20][20];
+        Player player = new Player(10,10);
 
         terminal.enterPrivateMode();
         while (true) {
