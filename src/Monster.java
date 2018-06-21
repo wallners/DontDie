@@ -1,6 +1,12 @@
+import java.util.Random;
+
 public class Monster {
     private int x;
     private int y;
+    Random rand = new Random();
+    float stupidityFactor;
+    int smartMove = 1;
+
 
     public Monster(int x, int y) {
         this.x = x;
@@ -25,15 +31,24 @@ public class Monster {
     }
 
     public void moveMonster(int playerX, int playerY) {
-        if (this.x > playerX) {
-            setX(-1);
+
+        stupidityFactor = rand.nextFloat();
+        System.out.println(stupidityFactor);
+        if (stupidityFactor < 0.9) {
+            smartMove = 1;
         } else {
-            setX(+1);
+            smartMove = -1;
+        }
+
+        if (this.x > playerX) {
+            setX(-1 * smartMove);
+        } else {
+            setX(+1 * smartMove);
         }
         if (this.y > playerY) {
-            setY(-1);
+            setY(-1 * smartMove);
         } else {
-            setY(+1);
+            setY(+1 * smartMove);
         }
     }
 }
