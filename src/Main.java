@@ -11,6 +11,7 @@ public class Main {
 
         char [][] board = new char [20][20];
         Player player = new Player(10,10);
+        Monster monster1 = new Monster(0,0);
         moveCursor(player, terminal);
         terminal.enterPrivateMode();
         while (true) {
